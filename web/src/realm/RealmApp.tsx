@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as RealmWeb from "realm-web";
 
-const REALM_APP_ID = "<Your App ID>";
+const REALM_APP_ID = "task-tracker-tutorial-keknc";
 const app = new RealmWeb.App({ id: REALM_APP_ID });
 
 const RealmAppContext = React.createContext<IRealmApp | void>(undefined);
@@ -25,21 +25,20 @@ const RealmApp: React.FC = ({ children }) => {
   // Let new users register an account
   const registerUser = async (email: string, password: string) => {
     // TODO: Register a new user with the specified email and password
-    return await app.auth.emailPassword.registerUser(email, password);
+    
   };
 
   // Let registered users log in
   const logIn = async (email: string, password: string) => {
     // TODO: Log in with the specified email and password
-    const credentials = RealmWeb.Credentials.emailPassword(email, password);
-    await app.logIn(credentials);
+    
     setUser(app.currentUser);
   };
 
   // Let logged in users log out
   const logOut = async () => {
     // TODO: Log the current user out
-    await app.logOut();
+    
     setUser(app.currentUser);
   };
 
